@@ -59,26 +59,30 @@ Pict 3
 Pict 4  
   
 ![howto 5](img/seeder-getter-005.jpg)  
-
-
-![javascript 1]()  
+Pict 5  
+  
+**3 Ways to run Seeder / Getter**  
+  
+![javascript 1](img/javascript-power/javascript-power-001.jpg)  
   
 The samples are working on 3 different modes: inside Web Browser, at command line and with Electron Graphical User Interface.  
   
 Since it uses JavaScript, it should be easier to understand and adapt it to more elaborated stuff...  
   
-![javascript 2]()  
+![javascript 2](img/javascript-power/javascript-power-002.jpg)  
   
 JavaScript language is UNIQUE in the sense that it runs inside the Web Browser, it runs as command line interface (CLI) and also, with Electron, it offers GUI (Graphical User Interface) programming choice. And, because JavaScript is relative simple and easy language to learn and use, even beginners can start to take advantage of it in all these ways...  
   
-
+  
 **Web Browser HTML/JavaScript version**  
   
 The following picture is the HTML/JavaScript version of the Seeder Sample running on Firefox:  
-  
+![](img/wl-seeder.jpg)  
+
 The following picture is the HTML/JavaScript version of the Getter Sample running on Firefox:  
+![](img/wl-getter.jpg)  
   
-Scripts are inside the "scripts-javascript" folder.  
+Scripts are inside the "code-browser" folder.  
   
 **NodeJS (JavaScript) version**  
   
