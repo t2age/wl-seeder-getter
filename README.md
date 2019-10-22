@@ -21,7 +21,7 @@ client.seed(file, function (torrent) {
 })
 ```  
   
-  
+-----
 
 The following lines are a real working code to P2P download (get) a file from a P2P seeder (server):  
   
@@ -40,6 +40,8 @@ client.add(magnetURI, { path: './INBOX' }, function (torrent) {
   })
 })
 ```  
+  
+-----
   
 Above scripts are inside the "js-simple" folder.
   
