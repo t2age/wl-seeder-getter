@@ -161,7 +161,7 @@ For this present version, my goal was simplicity: less number of lines of code, 
   
   
   
-**About "WebeLive" word**  
+**About "WL (WebeLive)" word**  
 ![WebeLive]()  
   
 When I started playing with Web Real Time stuff I was using the term "Web Live" to refer to the things that uses the notion of a web in "live" fashion (meaning "real time")...
