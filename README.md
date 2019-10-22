@@ -45,7 +45,7 @@ Above scripts are inside the "js-simple" folder.
 
 The following pictures illustrate how both process works.  
   
-![howto 1]()  
+![howto 1](../img/seeder-getter-001.jpg)  
 
 ![howto 2]()  
 
