@@ -7,7 +7,7 @@ WebeLive Seeder &amp; Getter (Powered by WebTorrent)
 The following lines of code are real working code to create a P2P Server (seeder) to serve (seed the file "hello.txt" to any P2P client (getter/downloader):  
   
 
-```  
+```javascript  
 var WebTorrent = require('webtorrent-hybrid')
 var client = new WebTorrent()
 
@@ -24,7 +24,7 @@ client.seed(file, function (torrent) {
 
 The following lines are a real working code to P2P download (get) a file from a P2P seeder (server):  
   
-```  
+```javascript  
 var WebTorrent = require('webtorrent-hybrid')
 var client = new WebTorrent()
 
