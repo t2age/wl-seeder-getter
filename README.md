@@ -1,7 +1,7 @@
 # WL Seeder & WL Getter
 WebeLive Seeder &amp; Getter (Powered by WebTorrent)  
   
-![seeder-getter simple]()  
+![seeder-getter simple](img/seeder-getter-howto-ICON.jpg)  
   
     
 The following lines of code are real working code to create a P2P Server (seeder) to serve (seed the file "hello.txt" to any P2P client (getter/downloader):  
