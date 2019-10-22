@@ -63,13 +63,13 @@ Pict 5
   
 **3 Ways to run Seeder / Getter**  
   
-![javascript 1](img/javascript-power/javascript-power-001.jpg)  
+![javascript 1](img/js-power/javascript-power-001.jpg)  
   
 The samples are working on 3 different modes: inside Web Browser, at command line and with Electron Graphical User Interface.  
   
 Since it uses JavaScript, it should be easier to understand and adapt it to more elaborated stuff...  
   
-![javascript 2](img/javascript-power/javascript-power-002.jpg)  
+![javascript 2](img/js-power/javascript-power-002.jpg)  
   
 JavaScript language is UNIQUE in the sense that it runs inside the Web Browser, it runs as command line interface (CLI) and also, with Electron, it offers GUI (Graphical User Interface) programming choice. And, because JavaScript is relative simple and easy language to learn and use, even beginners can start to take advantage of it in all these ways...  
   
