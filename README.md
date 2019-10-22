@@ -45,15 +45,20 @@ Above scripts are inside the "js-simple" folder.
 
 The following pictures illustrate how both process works.  
   
-![howto 1](../img/seeder-getter-001.jpg)  
 
-![howto 2]()  
-
-![howto 3]()  
-
-![howto 4]()  
-
-![howto 5]()  
+![howto 1](img/seeder-getter-001.jpg)  
+Pict 1  
+  
+![howto 2](img/seeder-getter-002.jpg)  
+Pict 2  
+  
+![howto 3](img/seeder-getter-003.jpg)  
+Pict 3  
+  
+![howto 4](img/seeder-getter-004.jpg)  
+Pict 4  
+  
+![howto 5](img/seeder-getter-005.jpg)  
 
 
 ![javascript 1]()  
