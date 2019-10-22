@@ -96,11 +96,49 @@ Scripts are inside the "code-browser" folder.
   
 The following code is a real working code for the seeder:  
   
+```javascript  
+var WebTorrent = require('webtorrent-hybrid')
+var client = new WebTorrent()
+
+// Get command line argument/parameter
+var file = process.argv[2];
+if (typeof file === 'undefined') {
+	console.log('Need FILE as argument:');
+	console.log('>node nodeSeeder.js "thisFile.txt"');
+	process.exit();
+} 
+
+client.seed(file, function (torrent) {
+  console.log('seeding torrent ', torrent.magnetURI);
+})
+```  
+  
 The following code is a real working code for the getter:  
+  
+```javascript  
+var WebTorrent = require('webtorrent-hybrid')
+var client = new WebTorrent()
+
+// Get command line argument/parameter
+magnetURI = process.argv[2];
+if (typeof magnetURI === 'undefined') {
+	console.log('Need magnetURI as argument:');
+	console.log('>node nodeGetter.js "bla bla bla..."');
+	process.exit();
+} 
+
+client.add(magnetURI, { path: './INBOX' }, function (torrent) {
+  console.log('Downloading ...');
+  
+  torrent.on('done', function () {
+    console.log('... torrent download finished to INBOX')
+  })  
+})
+```  
   
 Both code sample are very short and simple, and yet IT IS EVERYTHING THAT YOU NEED!  
   
-Scripts are inside the "script-nodejs" folder.  
+Scripts are inside the "code-nodejs" folder.  
   
   
 **Electron G.U.I. version**  
