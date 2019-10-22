@@ -115,6 +115,8 @@ client.seed(file, function (torrent) {
 })
 ```  
   
+-----
+  
 The following code is a real working code for the getter:  
   
 ```javascript  
@@ -137,6 +139,8 @@ client.add(magnetURI, { path: './INBOX' }, function (torrent) {
   })  
 })
 ```  
+  
+-----
   
 Both code sample are very short and simple, and yet IT IS EVERYTHING THAT YOU NEED!  
   
