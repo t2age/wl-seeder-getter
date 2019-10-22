@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WL-Getter</title>
+
+	<script src="webtorrent.min.js"></script>
+
+    <style>
+      a:link, a:visited { color: #30a247; text-decoration: none; }
+    </style>
+    
+</head>
+  
+	<body style="font-size: 24px;">
+		<div style="font-size: 30px; font-weight: bold;">WebeLive Getter File v0.5</div>		
+		<hr>
+		
+		<div style="margin: 5px; text-align: center">
+			<textarea id="magnetlink" cols="70" rows="7" placeholder="Paste magnet link here" style="font-size: 24px; background-color: #AAFFAA;"></textarea><br>
+			<button id="buttonGetTheFile" onclick="getTheFile()">Start Download (Getting) File</button>
+		</div>
+		
+		<hr>
+		<div style="margin: 5px">
+			Keep this page(or tab) open until finished 100% download! <br>
+		</div>
+
+		<hr>
+		<div id="hero" style="margin: 5px; ">
+			<div id="output">
+				<div id="progressBar" style="height: 30px; background-color: #55FF55;" ></div>
+			</div>
+			
+			<!-- Statistics -->
+			<div id="status" style="font-size: 24px; padding: 5px;">
+				<div>
+					<table style="border: 1px solid;">
+						<tr style="">
+							<td style="width: 200px; ">Peers</td>
+							<td id="numPeers" style="width: 500px; background-color: #DDDDDD;"></td>					
+						</tr>
+						<tr style="border: 1px solid;">
+							<td style="width: 200px;">Downloaded</td>
+							<td id="downloaded" style="width: 500px; background-color: #DDDDDD;"></td>
+						</tr>
+						<tr>
+							<td style="width: 200px;">File Size</td>
+							<td id="total" style="width: 500px; background-color: #DDDDDD;"></td>
+						</tr>
+						<tr>
+							<td style="width: 200px;">File Name</td>
+							<td id="display" style="width: 500px; background-color: #DDDDDD;"></td>
+						</tr>
+						
+					</table>					
+				</div>
+		        		
+			</div> <!-- end of status -->
+			
+		</div> <!-- end of hero -->
+		<hr>
+ 
+		<div id="downlink" style="height: 30px; margin: 5px; color: black; background-color: #AAFFAA">
+		File GREEN-LINK will be here ...</div> 
+		When Download is DONE, RIGHT-CLICK over the file name GREEN-LINK(above) and SAVE it!
+		<hr>
+		
+		<div style="font-size: 30px; font-weight: bold;">About WL-Getter</div>
+		WebeLive Getter uses WebTorrent to transfer files directly between Devices!
+
+		<script>
+			var progressBar 	= document.getElementById('progressBar')
+			var numPeers 		= document.getElementById('numPeers')
+			var downloaded 		= document.getElementById('downloaded')
+			var total 			= document.getElementById('total')
+			var remaining 		= document.getElementById('remaining')
+					
+			function getTheFile() {
+				// hide the button
+				var buttonGetTheFile = document.getElementById('buttonGetTheFile')
+				buttonGetTheFile.innerHTML = "Download in progress..."
+				buttonGetTheFile.disabled = true	
+				    
+				// display msg download in progress..	
+				var divDownLink = document.getElementById('downlink')
+				divDownLink.innerHTML = "Download in progress..."	
+					
+			    var torrentId = document.getElementById('magnetlink').value
+			    var client = new WebTorrent()
+			
+			    // Download the torrent
+				client.add(torrentId, function (torrent) {
+	
+			        var file = torrent.files.find(function (theFileInsideTorrent) {
+						return theFileInsideTorrent.name;
+			        })						        
+			        console.log(file.name);  	
+					document.getElementById("display").innerHTML = file.name;
+			
+			        // Trigger statistics refresh
+			        torrent.on('done', onDone)
+			        
+			        setInterval(onProgress, 500) 
+			        onProgress()
+			
+					// Statistics
+					function onProgress () {
+						// Peers
+						numPeers.innerHTML = torrent.numPeers + ' Compute peers'
+						
+						// Progress bar...
+						var percent = Math.round(torrent.progress * 100 * 100) / 100
+						progressBar.style.width = percent + '%'
+						
+						downloaded.innerHTML = torrent.downloaded
+						total.innerHTML = torrent.length
+					}	// end onProgress		
+							
+					// Show a hyperlink to download the file...
+					function onDone () {
+						onProgress()          
+						
+						file.getBlobURL(function (err, url) {
+							if (err) throw err
+							var a = document.createElement('a')
+							a.download = file.name
+							a.href = url
+							a.textContent = 'Save ' + file.name
+							document.getElementById('downlink').innerHTML = ''
+							document.getElementById('downlink').style.backgroundColor = "#EEEEEE"
+							document.getElementById('downlink').style.fontWeight = "bold"
+							document.getElementById('downlink').appendChild(a)
+						})
+					}  // end onDone
+					
+				}) // end client.add
+								
+			} // end getTheFile
+	      
+	    </script>  
+
+	</body>
+</html>

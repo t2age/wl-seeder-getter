@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>WL-Seeder</title>
+	
+    <script src="webtorrent.min.js"></script>
+
+	<style>
+		body { font-size: 24px; }
+		textarea { font-size: 24px; }
+	</style>
+
+</head>
+
+
+<body>
+	<div style="font-size: 30px; font-weight: bold;">WebeLive Seeder File v0.5</div>
+	<hr>
+	Select File To Seed:
+	<input type="file" id="fileInput" onChange="fileBrowser()" />
+	<hr>
+
+	<div style="margin: 5px; text-align: center">
+		Below is the Magnet Link to download (getter) the file:
+		<br />
+		<textarea id="magnetLink" cols="70" rows="7" placeholder="Magnet link will be here" style="background-color: #FFAAAA;"></textarea><br>
+	</div>
+
+	<hr>
+	<table style="border: 1px solid;">
+		<tr style="">
+			<td style="width: 200px; ">Peers</td>
+			<td id="numPeers" style="width: 500px; background-color: #DDDDDD;"></td>					
+		</tr>
+		<tr style="border: 1px solid;">
+			<td style="width: 200px;">Upload Speed</td>
+			<td id="uploadSpeed" style="width: 500px; background-color: #DDDDDD;"></td>
+			<td>Bytes/Second</td>
+		</tr>
+		<tr>
+			<td style="width: 200px;">Uploaded</td>
+			<td id="uploaded" style="width: 500px; background-color: #DDDDDD;"></td>
+		</tr>
+		<tr>
+			<td style="width: 200px;">File Size</td>
+			<td id="total" style="width: 500px; background-color: #DDDDDD;"></td>
+		</tr>
+		<tr>
+			<td style="width: 200px;">Status</td>
+			<td id="finalstatus" style="width: 500px; background-color: #DDDDDD;"></td>
+		</tr>
+	</table>
+	<hr>
+
+	<progress id="downProgress" value="0" max="" style="background-color: #FFCCCC; width: 100%; height: 25px;"></progress>
+
+	<br />
+	<div style="font-size: 30px; font-weight: bold;">About WL-Seeder</div>
+	WebeLive Seeder uses WebTorrent to transfer files directly between Devices!	
+
+    
+	<script>
+		var client = new WebTorrent();
+	 
+		function fileBrowser() {
+			var files = document.getElementById('fileInput');
+			console.log(fileInput.files);
+			
+		    client.seed(fileInput.files, function (torrent) {
+			    console.log('Client is seeding:', torrent.infoHash);
+			    console.log('Client is seeding:', torrent.magnetURI);
+			    document.getElementById('magnetLink').value = torrent.magnetURI;
+			    console.log('Client is seeding:', torrent.torrentFile);
+			    
+				document.getElementById('downProgress').max = fileInput.files[0].size;
+				document.getElementById('downProgress').value = "";
+				
+				var watchDown = setInterval(function() {			
+					if (torrent.uploaded == fileInput.files[0].size) {
+						// download is over
+						console.log('finish...');
+						document.getElementById('finalstatus').innerHTML = 'Finished!';
+						clearInterval(watchDown);			
+					} 
+					
+					document.getElementById('numPeers').innerHTML = torrent.numPeers;
+					document.getElementById('uploadSpeed').innerHTML = torrent.uploadSpeed;
+					document.getElementById('downProgress').value = torrent.uploaded;
+					document.getElementById('uploaded').innerHTML = torrent.uploaded;
+					document.getElementById('total').innerHTML = torrent.length;
+				}, 1000);
+			})
+		}
+	</script>
+
+</body>
+
+</html>

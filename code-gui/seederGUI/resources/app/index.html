@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SeederGUI</title>
+    
+    <style>
+	    body {font-size: 20px;}
+	    button {font-size: 20px;}
+	    textarea {font-size: 20px;}
+    </style>
+    
+  </head>
+
+  <body>
+    <div style="font-weight: bold; font-size: 28px; ">WL Seeder GUI</div>
+ 
+	<script>
+		const {clipboard} = require('electron');
+		
+		clipboard.writeText('my name', 'selection');
+		console.log(clipboard.readText('selection'));
+	</script>
+
+	<script src="guiSeeder.js"></script>
+
+	<button onclick="openFile()" id="" >Browse File </button>
+	<hr>
+	<button id="createTorrent" onclick="createTorrent()" >Create Torrent</button>
+	<br />
+	<textarea id="magnetURI" rows="7" cols="60"></textarea>
+	<br />
+  
+</html>
+
