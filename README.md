@@ -162,15 +162,10 @@ For this present version, my goal was simplicity: less number of lines of code, 
   
   
 **About "WL (WebeLive)" word**  
-![WebeLive]()  
+Basically it means Web in live (real time) fashion, but with more meaning added to it, such as:  
   
-When I started playing with Web Real Time stuff I was using the term "Web Live" to refer to the things that uses the notion of a web in "live" fashion (meaning "real time")...  
+a) Web Live (Tools)  
+b) Web (Which is) Alive  
+c) Web (That We Can) Believe  
   
-But, slowly I realized that there is much more than just making real time communication on the Internet, there are lots and lots of tools that we can use to explore the notion of "live" and Internet together...  
-  
-My perception has changed and I was still refering to it as "Web Live", then I decide to change the term (word) that I was using, so to tell me (and others) that it is more than just a real time web, but I did not want something to much removed from the "web live" aspect... so I decide to create a new term, "WebeLive" and attach the following meaning to it...  
-  
-a) Web Live  
-b) Web ALive  
-c) Web Believe  
-  
+[Details here: https://github.com/t2age/webelive](https://github.com/t2age/webelive)
